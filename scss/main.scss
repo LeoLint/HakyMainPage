@@ -1,0 +1,171 @@
+@mixin br($br) {
+    @if $br == xs {
+      @media (max-width: 480px) { @content; }
+    }
+    @if $br == sm {
+      @media (max-width: 768px) { @content; }
+    }
+    @if $br == md {
+      @media (max-width: 992px) { @content; }
+    }
+    @if $br == xl {
+        @media (max-width: 1024px) { @content; }
+    }
+    @if $br == xxl {
+        @media (max-width: 1200px) { @content; }
+    }
+}
+
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    @include br(xxl){
+        max-width: 1200px;
+        box-sizing: border-box;
+        margin: 0 auto;
+    }
+    @include br(xl){
+            max-width: 1024px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+    @include br(md){
+            max-width: 992px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+    @include br(sm){
+            max-width: 768px;
+            padding: 0 0px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+    @include br(xs){
+            max-width: 480px;
+            padding: 0 0px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+}
+
+    
+body {
+    max-width: 1440px 100%;
+    box-sizing: border-box;
+    font-family: 'Bitter', serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.main {
+    width: 100%;
+    &_wrapper {
+        width: 100%;
+        display: flex;
+        @include br(xs){
+            flex-direction: column;
+        }
+        &-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 1032px;
+            background: url(/img/left.png) no-repeat;
+            background-size: cover;
+            a {
+                text-decoration: none;
+            }
+            @include br(sm){
+                height: 844px;
+            }
+            @include br(xs){
+                margin-top: 250px;
+                height: 300px;
+            }
+            &--item {
+                display: block;
+                width: 324px;
+                height: 123px;
+                background-color: rgba(196, 196, 196, 0.8);
+                text-align: center;
+                color: white;
+                font-family: 'Bitter', serif;
+                font-family: 400;
+                padding-top: 20px;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                &:hover {
+                    transition: 0.3s ease-in-out;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &-central {
+            display: block;
+            width: 445px;
+            height: 305px;
+            position: fixed;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%); 
+            background-color: #264492 ;
+            color: white;
+            cursor: pointer;
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            @include br(xl){
+                top: 30%;
+            }
+            @include br(sm){
+                top: 20%;
+            }
+            @include br(xs){
+                top: 17%;
+            }
+            h1 {
+                font-size: 80px;
+                text-align: center;
+                font-family: 'Bitter', serif;
+                transition: 0.3s ease-in-out;
+                &:hover {
+                    transition: 0.3s ease-in-out;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background: url(/img/right.png) no-repeat;
+            background-size: cover;
+            @include br(xs){
+                height: 300px;
+            }
+            a {
+                text-decoration: none;
+            }
+            &--item {
+                display: block;
+                width: 324px;
+                height: 123px;
+                background-color: rgba(38, 68, 146, 0.5);
+                text-align: center;
+                color: white;
+                font-family: 'Bitter', serif;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                padding-top: 20px;
+                &:hover {
+                    transition: 0.3s ease-in-out;
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
